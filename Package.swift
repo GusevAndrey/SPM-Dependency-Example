@@ -36,7 +36,7 @@ let package = Package(
                 "Common-Target",
 
                 .target(name: "iOS-specific-target", condition: .when(platforms: [.iOS])),
-                .target(name: "TV-Specific-target", condition: .when(platforms: [.tvOS]))
+                .target(name: "TV-specific-target", condition: .when(platforms: [.tvOS]))
             ],
             path: "SomeTarget"
         ),
@@ -52,8 +52,21 @@ let package = Package(
         ),
 
         .target(
-            name: "TV-Specific-target",
+            name: "iOS-specific-target-dependency",
+            path: "iOSTargetDependency"
+        ),
+
+        .target(
+            name: "TV-specific-target",
+            dependencies: [
+                "TV-specific-target-dependency"
+            ],
             path: "tvOSTarget"
+        ),
+
+        .target(
+            name: "TV-specific-target-dependency",
+            path: "TVTargetDependency"
         )
 
     ]

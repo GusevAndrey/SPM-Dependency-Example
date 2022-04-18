@@ -3,7 +3,7 @@ import Foundation
 #if os(iOS)
     import iOS_specific_target
 #elseif os(tvOS)
-    import TV_Specific_target
+    import TV_specific_target
 #endif
 
 public func printSome() {
